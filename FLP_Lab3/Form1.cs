@@ -28,11 +28,17 @@ namespace FLP_Lab3
         {
             var form = new ProductForm();
             form.ShowDialog();
+
         }
 
         private void ReadBd_Click(object sender, EventArgs e)
         {
-            var products = CompositionRoot.ProductRepository.GetAll().OrderBy(p=>p.Name);
+            
+
+        }
+        private void ReadFromDB()
+        {
+            var products = CompositionRoot.ProductRepository.GetAll().OrderBy(p => p.Name);
             if (products.Count() == 0)
             {
                 MessageBox.Show("DB is empty");
@@ -44,12 +50,11 @@ namespace FLP_Lab3
                 _productControls.Add(control);
                 flowLayoutPanelList.Controls.Add(control);
             }
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            ReadFromDB();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

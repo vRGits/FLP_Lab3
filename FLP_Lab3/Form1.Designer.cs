@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.AddProduct = new System.Windows.Forms.Button();
             this.flowLayoutPanelList = new System.Windows.Forms.FlowLayoutPanel();
-            this.ReadBd = new System.Windows.Forms.Button();
             this.flowLayoutPanelSelected = new System.Windows.Forms.FlowLayoutPanel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -40,6 +39,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Save = new System.Windows.Forms.Button();
             this.Stats = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,20 +59,10 @@
             // flowLayoutPanelList
             // 
             this.flowLayoutPanelList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flowLayoutPanelList.Location = new System.Drawing.Point(14, 49);
+            this.flowLayoutPanelList.Location = new System.Drawing.Point(14, 68);
             this.flowLayoutPanelList.Name = "flowLayoutPanelList";
-            this.flowLayoutPanelList.Size = new System.Drawing.Size(373, 238);
+            this.flowLayoutPanelList.Size = new System.Drawing.Size(373, 219);
             this.flowLayoutPanelList.TabIndex = 1;
-            // 
-            // ReadBd
-            // 
-            this.ReadBd.Location = new System.Drawing.Point(47, 343);
-            this.ReadBd.Name = "ReadBd";
-            this.ReadBd.Size = new System.Drawing.Size(111, 29);
-            this.ReadBd.TabIndex = 2;
-            this.ReadBd.Text = "ReadFromDB";
-            this.ReadBd.UseVisualStyleBackColor = true;
-            this.ReadBd.Click += new System.EventHandler(this.ReadBd_Click);
             // 
             // flowLayoutPanelSelected
             // 
@@ -146,11 +139,51 @@
             this.Stats.UseVisualStyleBackColor = true;
             this.Stats.Click += new System.EventHandler(this.Stats_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(78, 45);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 20);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Калории";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(144, 45);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 20);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Белки";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(191, 45);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(51, 20);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Жиры";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(239, 45);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 20);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Углеводы";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 450);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.Stats);
             this.Controls.Add(this.Save);
             this.Controls.Add(this.pictureBox1);
@@ -159,7 +192,6 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.flowLayoutPanelSelected);
-            this.Controls.Add(this.ReadBd);
             this.Controls.Add(this.flowLayoutPanelList);
             this.Controls.Add(this.AddProduct);
             this.Name = "Form1";
@@ -175,7 +207,6 @@
 
         private System.Windows.Forms.Button AddProduct;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelList;
-        private System.Windows.Forms.Button ReadBd;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelSelected;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox comboBox1;
@@ -184,5 +215,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.Button Stats;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

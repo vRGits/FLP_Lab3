@@ -24,8 +24,7 @@ namespace FLP_Lab3
 
         private void StatsForm_Load(object sender, EventArgs e)
         {
-             consumption = CompositionRoot.ConsumptionRepository
-                .GetByDate(DateTime.Now);
+            ShowConsumptions(DateTime.Now.Date);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -35,7 +34,7 @@ namespace FLP_Lab3
         }
         private void ShowConsumptions(DateTime date)
         {
-            int cal=0;
+            double cal=0;
             double prot=0, fats=0, carb=0;
             consumption = CompositionRoot.ConsumptionRepository.GetByDate(date).OrderBy(t => t.Time);
             List<Consumption> test = consumption.ToList();
@@ -46,25 +45,26 @@ namespace FLP_Lab3
                 return;
             }
             string[] time = { "any time", "breakfest", "lunch", "dinner" };
-            int i = 0;
+            int i = -1;
             foreach (var item in consumption)
             {
-                if (i == (int)item.Time)
+                if (i < (int)item.Time)
                 {
+                    i = (int)item.Time;
                     Label lbl = new Label();
                     lbl.Text = time[i];
                     flowLayoutPanel1.Controls.Add(lbl);
-                    i++;
+   
                 }
                 StatsControl control = new StatsControl(item);
-                cal = item.Product.Calories;
-                prot = item.Product.Proteins;
-                fats = item.Product.Fats;
-                carb = item.Product.Carbohydrates;
+                cal += item.Product.Calories*item.Portion/100;
+                prot += item.Product.Proteins * item.Portion / 100;
+                fats += item.Product.Fats * item.Portion / 100;
+                carb += item.Product.Carbohydrates * item.Portion / 100;
                 controls.Add(control);
                 flowLayoutPanel1.Controls.Add(control);
             }
-            flowLayoutPanel1.Controls.Add(new Label() { Text = $"Итог дня:\nКалории {cal}\nБелки {prot}\nЖиры {fats}\nУглеводы{carb} " });
+            label1.Text = $"Итог дня: Калории {cal} Белки {prot}г. Жиры {fats}г. Углеводы {carb}г. ";
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -75,7 +75,12 @@ namespace FLP_Lab3
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-            ShowConsumptions(DateTime.Now.Date);
+            
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            ShowConsumptions(dateTimePicker1.Value.Date);
         }
     }
 }
