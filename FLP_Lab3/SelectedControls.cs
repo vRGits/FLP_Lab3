@@ -31,6 +31,7 @@ namespace FLP_Lab3
 
         public static void Clear()
         {
+            //use ForEach
             foreach (var item in myVar)
             {
                 item.BackColor = SystemColors.Control;
